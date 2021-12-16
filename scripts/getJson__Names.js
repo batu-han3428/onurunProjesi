@@ -3,12 +3,13 @@ $("#getdata-one").click(function () {
     var clicks = $(this).data('clicks');
     if (clicks) {
         // odd clicks
-        $("#tableTbody").find("tr:gt(0)").remove();
+        $("#liste").find("tr:gt(0)").remove();
     } else {
         // even clicks
 
 
-        $.getJSON("/json/jsonCICLIC.json", function (data) {
+        $.getJSON("json/jsonCICLIC.json", function (data) {
+        
             data.forEach(function (objet, index) {
 
 
