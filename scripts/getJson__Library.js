@@ -1,11 +1,11 @@
-$(".autor").click(function () {
-    
+$(".libraryy").click(function () {
+
     $.getJSON('json/jsonCICLIC.json', function (data) {
+
         document.getElementById('tableTbody').innerHTML = "";
         let column = "";
         data.forEach(function (objet, index) {
-            if (objet.Clefs.indexOf(enSonTiklananTus) > -1) {
-        
+            if (objet.Clefs.indexOf(enSonTiklananTus) > -1) {    
                 column += `
                     <tr>
                         <td>${objet.Name}</td>
@@ -18,17 +18,31 @@ $(".autor").click(function () {
         })
         document.getElementById('tableTbody').insertAdjacentHTML('afterbegin', column);
 
-
         data.forEach(function (objet, index) {
-            var autor = objet.Cibles.indexOf("AUTEUR") > -1;
+            var autor = objet.Cibles.indexOf("LIBRAIRE") > -1;
+
+
             if (autor) {
+
                 document.querySelectorAll('.cibless').forEach((cibles) => {
                     console.log(cibles)
-                    if (!cibles.textContent.includes('AUTEUR')) {
+                    if (!cibles.textContent.includes('LIBRAIRE')) {
                         cibles.parentElement.remove();
                     }
                 })
+
             }
+
+            // var cibles = $('#liste .tab');
+            // if(cibles.html!=autor){
+            //     $("#liste").remove(); 
+            // }
+
+
+
+
         });
+
     })
+
 });

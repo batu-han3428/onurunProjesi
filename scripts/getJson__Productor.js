@@ -1,11 +1,11 @@
-$(".autor").click(function () {
-    
+$(".productor").click(function () {
+
     $.getJSON('json/jsonCICLIC.json', function (data) {
+
         document.getElementById('tableTbody').innerHTML = "";
         let column = "";
         data.forEach(function (objet, index) {
-            if (objet.Clefs.indexOf(enSonTiklananTus) > -1) {
-        
+            if (objet.Clefs.indexOf(enSonTiklananTus) > -1) {    
                 column += `
                     <tr>
                         <td>${objet.Name}</td>
@@ -20,11 +20,11 @@ $(".autor").click(function () {
 
 
         data.forEach(function (objet, index) {
-            var autor = objet.Cibles.indexOf("AUTEUR") > -1;
+            var autor = objet.Cibles.indexOf("PRODUCTEUR") > -1;
             if (autor) {
                 document.querySelectorAll('.cibless').forEach((cibles) => {
                     console.log(cibles)
-                    if (!cibles.textContent.includes('AUTEUR')) {
+                    if (!cibles.textContent.includes('PRODUCTEUR')) {
                         cibles.parentElement.remove();
                     }
                 })
